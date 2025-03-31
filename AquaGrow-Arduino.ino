@@ -6,12 +6,12 @@ void setup() {
 }
 
 void loop() {
-  int sensorVal = analogRead(A0);
+  float sensorVal = analogRead(A0);
  
-  int percentageHumididy = map(sensorVal, wet, dry, 100, 0); 
+  float percentageHumididy = (sensorVal - dry) / (wet - dry); 
 
   Serial.print("Soil Moisture: ");
-  Serial.print(percentageHumididy);
+  Serial.print(percentageHumididy * 100);
   Serial.println("%");
   
   delay(100);
