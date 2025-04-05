@@ -22,7 +22,7 @@ void loop() {
   if (percentageHumidity > 100) percentageHumidity = 100.0;
   if (percentageHumidity < 0) percentageHumidity = 0.0;
 
-  Serial.println(percentageHumidity);
+  Serial.write(String(percentageHumidity).c_str(), 5);
   
   if (percentageHumidity <= min)
     digitalWrite(PUMP_PIN, HIGH);
